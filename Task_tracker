@@ -1,0 +1,75 @@
+#create a variable tasks
+Tasks = []
+
+while True:
+    print("\n-------TASK TRACKER-------")
+    print("1. Add a task")
+    print("2. Edit a task")
+    print("3. View a task")
+    print("4. delete a task")
+    print("5. Exit task tracker")
+
+    choice = input(" choose an option:")
+
+    # Add:
+    if choice == "1":
+        title = input("Enter your task:")
+
+        Task = {
+            "title": title,
+            "completed": False
+        }
+        Tasks.append(Task)
+        print("TASK CREATED SUCCESFULLY!")
+               
+    # Edit:
+    elif choice == "2":
+        if not Tasks:
+            print("No tasks to edit.")
+            continue
+
+        for i, task in enumerate(Tasks, 1):
+            print(f"{i}. {task['title']}")
+
+        number = int(input("Enter task number to edit: "))
+
+        if 1 <= number <= len(Tasks):
+            new_title = input("Enter new task name: ")
+            Tasks[number - 1]["title"] = new_title
+            print("Task updated successfully!")
+        else:
+            print("Invalid task number.")
+            
+    # View:
+    elif choice == "3":
+        if not Tasks:
+            print("No tasks to view")
+            
+        else:
+            print("\n YOUR TASKS:")
+            for i, task in enumerate(Tasks, 1):
+                status = "Completed" if task["completed"] else "Pending"
+                print(f"{i}. {task['title']} - {status}")
+    # Delete:
+    elif choice == "4":
+      if not Tasks:
+          print("NO TASKS TO DELETE") 
+        
+      for i, task in enumerate(Tasks, 1):
+            print(f"{i}. {task['title']}")
+
+      number = int(input("Enter task number to delete: "))
+
+      if 1 <= number <= len(Tasks):
+            deleted = Tasks.pop(number - 1)
+            print(f"Deleted: {deleted['title']}")
+      else:
+            print("Invalid task number.")
+
+    # EXIT
+    elif choice == "5":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.")
