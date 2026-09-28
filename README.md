@@ -222,7 +222,7 @@ It also serves as one of my beginner projects as I continue developing my skills
 This project was inspired by the **Task Tracker** challenge on roadmap.sh.
 
 🔗 https://roadmap.sh/projects/task-tracker
-
+https://roadmap.sh/projects/expense-tracker
 ---
 
 ## 👨‍💻 Author
